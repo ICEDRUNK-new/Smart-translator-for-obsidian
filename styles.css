@@ -1,0 +1,388 @@
+.pdf-math-translate-status {
+  color: var(--text-muted);
+}
+
+.pdf-math-translate-settings-note {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  line-height: var(--line-height-tight);
+  margin: 0.75rem 0 1.25rem;
+}
+
+.pdf-math-translate-settings-heading {
+  margin-top: 1.75rem;
+}
+
+.pdf-math-translate-progress {
+  width: 100%;
+  height: 0.65rem;
+}
+
+.pdf-math-translate-progress-mini {
+  position: fixed;
+  right: 1rem;
+  bottom: 2.5rem;
+  z-index: var(--layer-popover, 1000);
+  width: min(26rem, calc(100vw - 2rem));
+  padding: 0.8rem;
+  box-sizing: border-box;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background: var(--background-primary);
+  box-shadow: var(--shadow-l);
+}
+
+.pdf-math-translate-progress-mini-header,
+.pdf-math-translate-progress-mini-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdf-math-translate-progress-mini-header {
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.pdf-math-translate-progress-mini-title {
+  font-weight: var(--font-semibold);
+}
+
+.pdf-math-translate-progress-mini-summary,
+.pdf-math-translate-progress-mini-file,
+.pdf-math-translate-progress-mini-status {
+  margin: 0.4rem 0;
+  line-height: var(--line-height-tight);
+}
+
+.pdf-math-translate-progress-mini-file {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pdf-math-translate-progress-mini-status {
+  min-height: 1.2em;
+}
+
+.pdf-math-translate-progress-mini-file-progress {
+  margin-top: 0.15rem;
+}
+
+.pdf-math-translate-path-input {
+  min-width: min(32rem, 60vw);
+}
+
+.pdf-math-translate-options-modal,
+.pdf-math-translate-progress-modal,
+.pdf-math-translate-batch-picker,
+.pdf-math-translate-selection-modal,
+.pdf-math-translate-ai-question-modal {
+  width: min(48rem, 92vw);
+}
+
+.pdf-math-translate-ai-selection-preview {
+  max-height: 12rem;
+  overflow-y: auto;
+  margin-bottom: 0.8rem;
+}
+
+.pdf-math-translate-ai-question-input {
+  width: min(36rem, 60vw);
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.pdf-math-translate-ai-modal-actions {
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: 0.8rem;
+}
+
+.pdf-math-translate-selection-text {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  font-family: var(--font-text);
+  line-height: var(--line-height-normal);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.pdf-math-translate-selection-view {
+  height: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pdf-math-translate-selection-model-panel {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+}
+
+.pdf-math-translate-selection-model-heading {
+  margin: 0 0 0.55rem;
+  font-size: var(--font-ui-small);
+}
+
+.pdf-math-translate-selection-model-fields {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.pdf-math-translate-selection-model-select,
+.pdf-math-translate-selection-model-input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.pdf-math-translate-selection-model-status {
+  margin: 0.55rem 0 0;
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+.pdf-math-translate-selection-model-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.pdf-math-translate-selection-progress {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  color: var(--text-accent);
+}
+
+.pdf-math-translate-selection-error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--background-modifier-error);
+  border-radius: var(--radius-s);
+  color: var(--text-error);
+  overflow-wrap: anywhere;
+}
+
+/* Clicks are resolved by coordinates; the overlay stays transparent to preserve text dragging. */
+.pdf-plus-backlink-highlight-layer .pdf-plus-backlink.pdf-plus-backlink-selection {
+  pointer-events: none !important;
+}
+
+.pdf-math-translate-section-heading {
+  margin: 1.4rem 0 0.35rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--background-modifier-border);
+  font-size: var(--font-ui-medium);
+}
+
+.pdf-math-translate-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.pdf-math-translate-picker-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pdf-math-translate-search {
+  flex: 1 1 18rem;
+  min-width: 12rem;
+}
+
+.pdf-math-translate-picker-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.pdf-math-translate-selection-count,
+.pdf-math-translate-batch-summary {
+  color: var(--text-accent);
+  font-weight: var(--font-semibold);
+}
+
+.pdf-math-translate-file-list,
+.pdf-math-translate-queue {
+  max-height: min(24rem, 48vh);
+  overflow: auto;
+  margin: 0.65rem 0;
+  padding: 0.35rem;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.pdf-math-translate-file-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+}
+
+.pdf-math-translate-file-choice:hover {
+  background: var(--background-modifier-hover);
+}
+
+.pdf-math-translate-file-choice input {
+  margin-top: 0.25rem;
+}
+
+.pdf-math-translate-file-name {
+  color: var(--text-normal);
+  font-weight: var(--font-medium);
+}
+
+.pdf-math-translate-file-path {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+.pdf-math-translate-tree-folder {
+  margin: 0.1rem 0;
+}
+
+.pdf-math-translate-tree-folder-row,
+.pdf-math-translate-tree-file {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-s);
+}
+
+.pdf-math-translate-tree-folder-row {
+  cursor: pointer;
+  font-weight: var(--font-medium);
+}
+
+.pdf-math-translate-tree-folder-row:hover,
+.pdf-math-translate-tree-file:hover {
+  background: var(--background-modifier-hover);
+}
+
+.pdf-math-translate-tree-folder-row input,
+.pdf-math-translate-tree-file input {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.pdf-math-translate-tree-folder-name,
+.pdf-math-translate-tree-file-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pdf-math-translate-tree-count,
+.pdf-math-translate-tree-skip {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.pdf-math-translate-tree-skip {
+  color: var(--text-warning);
+}
+
+.pdf-math-translate-tree-file.is-translated {
+  color: var(--text-muted);
+}
+
+.pdf-math-translate-tree-children {
+  margin-left: 1rem;
+  padding-left: 0.45rem;
+  border-left: 1px solid var(--background-modifier-border);
+}
+
+.pdf-math-translate-region-marker {
+  position: fixed;
+  z-index: var(--layer-popover, 1000);
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 3px solid var(--interactive-accent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--interactive-accent) 20%, transparent);
+  box-shadow: 0 0 0 0.35rem color-mix(in srgb, var(--interactive-accent) 18%, transparent);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: pdf-math-translate-region-pulse 1.8s ease-out forwards;
+}
+
+@keyframes pdf-math-translate-region-pulse {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.45);
+  }
+}
+
+.pdf-math-translate-current-file {
+  margin-bottom: 0.35rem;
+  font-weight: var(--font-medium);
+  overflow-wrap: anywhere;
+}
+
+.pdf-math-translate-queue {
+  padding: 0.45rem 0.45rem 0.45rem 2.25rem;
+}
+
+.pdf-math-translate-queue li {
+  padding: 0.35rem 0.5rem;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.pdf-math-translate-queue li::marker {
+  font-weight: var(--font-semibold);
+}
+
+.pdf-math-translate-queue li.is-running {
+  color: var(--text-accent);
+  background: var(--background-modifier-hover);
+}
+
+.pdf-math-translate-queue li.is-complete {
+  color: var(--text-success);
+}
+
+.pdf-math-translate-queue li.is-failed {
+  color: var(--text-error);
+}
+
+.pdf-math-translate-queue li.is-cancelled {
+  color: var(--text-warning);
+}

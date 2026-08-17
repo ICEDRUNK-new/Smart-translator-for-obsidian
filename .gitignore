@@ -1,0 +1,25 @@
+# Obsidian runtime/user settings — may contain local paths and usage history
+data.json
+
+# Real PDFMathTranslate credentials/configuration
+pdf2zh-api-config.json
+*.local.json
+.env
+.env.*
+
+# Secrets and private keys
+*.pem
+*.key
+
+# Local development environments and caches
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Temporary/generated files
+*.log
+*.tmp

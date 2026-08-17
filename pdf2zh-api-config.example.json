@@ -1,0 +1,14 @@
+{
+  "translators": [
+    {
+      "name": "openailiked",
+      "envs": {
+        "OPENAILIKED_BASE_URL": "https://api.example.com/v1",
+        "OPENAILIKED_API_KEY": "YOUR_API_KEY",
+        "OPENAILIKED_MODEL": "gpt-4o-mini",
+        "OPENAILIKED_STREAM": "false"
+      }
+    }
+  ],
+  "NOTO_FONT_PATH": "C:/path/to/SourceHanSerifCN-Regular.ttf"
+}

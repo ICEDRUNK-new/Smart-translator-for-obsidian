@@ -1,0 +1,9 @@
+{
+  "id": "pdf-math-translate",
+  "name": "PDF Math Translate",
+  "version": "0.7.2",
+  "minAppVersion": "1.5.0",
+  "description": "Translate scientific PDFs and bridge PDF++ selections to Claudian for grounded Q&A and annotations.",
+  "author": "PDF Math Translate contributors",
+  "isDesktopOnly": true
+}
