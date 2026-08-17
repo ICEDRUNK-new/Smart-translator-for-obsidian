@@ -267,4 +267,6 @@ README.md                        Documentation
 
 ## License
 
-No license file was supplied with this release package. Before publishing the repository as open source, add an explicit license such as MIT, Apache-2.0, GPL, or another license appropriate for your project and its dependencies.
+This project is released under the [MIT License](LICENSE).
+
+Third-party dependencies and integrated projects remain subject to their respective licenses.
