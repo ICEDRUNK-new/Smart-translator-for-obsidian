@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/badge/version-0.7.2-blue)
 ![License](https://img.shields.io/badge/license-AGPL--3.0--only-green)
 
-**中文文档**：[README_zh.md](README_zh.md)
+**主文档**：[README.md](README.md)
 
 在 Obsidian 桌面版中调用 [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate)，把 Vault 内的科技论文 PDF 翻译为单语译文，或同时输出单语译文和双语对照 PDF；翻译说明 Markdown 可选生成且默认关闭。
 
@@ -23,7 +23,7 @@
 - HTTP 模式调用项目已有的 `/v1/translate`、状态查询、下载和取消接口；
 - 显示翻译进度并支持取消；点击窗口外部或按 Esc 会缩成可实时查看进度的右下角小窗，可随时展开，任务在后台继续；
 - 翻译运行期间仍可从进度窗、迷你进度窗、工具栏、命令或右键菜单新增任务；新任务保留各自设置并进入顺序等待队列，不并发调用翻译服务；
-- 可在每次任务前选择“仅输出单语”或“输出单语、双语”，并写入原 PDF 所在文件夹；
+- 可在每次任务前选择"仅输出单语"或"输出单语、双语"，并写入原 PDF 所在文件夹；
 - 翻译说明 Markdown 可单独开启，新安装默认不生成；
 - 每次翻译使用带毫秒的任务时间命名，不覆盖旧结果；
 - 在生成的笔记中嵌入双语 PDF，并记录来源、翻译方向、服务和核心版本；
@@ -31,7 +31,7 @@
 - OpenAI 和 OpenAI 兼容中转站可自动检测文本模型，并在每次翻译前提供模型下拉列表；
 - 设置页提供不执行翻译的连接检查。
 - 接入 PDF++ 自定义右键菜单，划词后直接调用当前 PDFMathTranslate 服务翻译短文本；
-- PDF++ 划词后可输入问题，并把“问题 + 精确选区 + 来源页码”填入 Claudian/Codex；
+- PDF++ 划词后可输入问题，并把"问题 + 精确选区 + 来源页码"填入 Claudian/Codex；
 - Claudian 负责模型切换、连续对话和 agent 工具，本插件不再维护第二套聊天后端；
 - 回答完成后，可从右键菜单、命令面板或左侧高亮图标快速导入批注；
 - 一键生成带 PDF++ 精确选区反链的 Markdown 批注，或把译文一起保存为双语批注；
@@ -82,7 +82,7 @@ Obsidian 命令 / 文件菜单 / PDF++ 选区菜单 / 任务窗口
 
 1. 在项目 Releases 页面下载 `pdf-math-translate-x.y.z.zip`；
 2. 解压后将 `main.js`、`manifest.json`、`styles.css` 和 `bridge/` 目录复制到 `<Vault>/.obsidian/plugins/pdf-math-translate/`；
-3. 在 Obsidian 的”设置 → 第三方插件”中重新加载并启用 **PDF Math Translate**。
+3. 在 Obsidian 的"设置 → 第三方插件"中重新加载并启用 **PDF Math Translate**。
 
 当前版本尚未收录到 Obsidian 官方社区插件库，因此需要手动安装。
 
@@ -117,7 +117,7 @@ pnpm test
 .\scripts\install-plugin.ps1 -VaultPath "C:\路径\到\你的 Vault"
 ```
 
-然后打开 Obsidian 的“设置 → 第三方插件”，刷新插件列表并启用 **PDF Math Translate**。
+然后打开 Obsidian 的"设置 → 第三方插件"，刷新插件列表并启用 **PDF Math Translate**。
 
 建议先在测试 Vault 中验证，不要直接把开发版本放入唯一的主 Vault。
 
@@ -166,14 +166,14 @@ Unblock-File .\scripts\setup-python.ps1
 
 在 Obsidian 中按下面顺序配置：
 
-1. 打开“设置 → PDF Math Translate”；
-2. 连接方式选择“本地 Python API”；
-3. 把“Python 可执行文件”设为脚本输出的 `.venv\Scripts\python.exe`；
-4. 把“PDFMathTranslate 源码目录”设为你的 `D:\src\PDFMathTranslate`；
-5. 点击“检查连接”；
+1. 打开"设置 → PDF Math Translate"；
+2. 连接方式选择"本地 Python API"；
+3. 把"Python 可执行文件"设为脚本输出的 `.venv\Scripts\python.exe`；
+4. 把"PDFMathTranslate 源码目录"设为你的 `D:\src\PDFMathTranslate`；
+5. 点击"检查连接"；
 6. 检查通过后再翻译 PDF。
 
-如果“检查连接”失败，优先核对这三件事：
+如果"检查连接"失败，优先核对这三件事：
 
 - 你填的是 **本插件的 `.venv` Python**，不是系统 Python；
 - 你填的是 **PDFMathTranslate 仓库根目录**，并且里面存在 `pdf2zh\__init__.py`；
@@ -181,7 +181,7 @@ Unblock-File .\scripts\setup-python.ps1
 
 翻译服务的密钥继续由 PDFMathTranslate 管理，可使用它的 `~/.config/PDFMathTranslate/config.json`、自定义配置文件或系统环境变量。本插件不保存 API 密钥。
 
-当服务选择“OpenAI”或“OpenAI 兼容接口”时，插件会在打开翻译窗口时调用配置地址的 `/v1/models`，并将返回的文本模型加入下拉列表。设置页和翻译窗口都可以手动刷新。自动检测只读取现有配置，不会改写配置文件；如果中转站没有实现模型端点，仍可手动输入准确模型 ID。
+当服务选择"OpenAI"或"OpenAI 兼容接口"时，插件会在打开翻译窗口时调用配置地址的 `/v1/models`，并将返回的文本模型加入下拉列表。设置页和翻译窗口都可以手动刷新。自动检测只读取现有配置，不会改写配置文件；如果中转站没有实现模型端点，仍可手动输入准确模型 ID。
 
 ### HTTP API（可选）
 
@@ -193,37 +193,37 @@ pdf2zh --flask
 pdf2zh --celery worker
 ```
 
-插件设置中选择“HTTP API”，填写服务地址（默认 `http://127.0.0.1:11008`）并检查连接。连接检查只能证明 Flask 可访问；Redis 与 Celery worker 会在提交实际任务时被验证。
+插件设置中选择"HTTP API"，填写服务地址（默认 `http://127.0.0.1:11008`）并检查连接。连接检查只能证明 Flask 可访问；Redis 与 Celery worker 会在提交实际任务时被验证。
 
-注意：当前上游 HTTP API 没有接收 `compatible` 参数对应的文件路径处理流程，因此插件的“兼容模式”只对本地 Python API 生效。
+注意：当前上游 HTTP API 没有接收 `compatible` 参数对应的文件路径处理流程，因此插件的"兼容模式"只对本地 Python API 生效。
 
 ## 使用
 
 打开一个 Vault 内的 PDF，然后任选一种方式：
 
 - 点击左侧工具栏的语言图标；
-- 在命令面板运行“PDF Math Translate: 翻译当前 PDF”；
-- 在文件列表中右键 PDF，选择“使用 PDF Math Translate 翻译”；
-- 当前不是 PDF 时，运行“选择并翻译 PDF”。
-- 运行“批量选择并翻译 PDF”，在可展开的 Vault 文件树中勾选文件或整层文件夹，再使用统一设置顺序处理；
-- 在文件列表中右键文件夹，选择“批量翻译此文件夹中的 PDF”；插件会先显示“待翻译 / 总数”，开始前列出并跳过已有译文。
+- 在命令面板运行"PDF Math Translate: 翻译当前 PDF"；
+- 在文件列表中右键 PDF，选择"使用 PDF Math Translate 翻译"；
+- 当前不是 PDF 时，运行"选择并翻译 PDF"。
+- 运行"批量选择并翻译 PDF"，在可展开的 Vault 文件树中勾选文件或整层文件夹，再使用统一设置顺序处理；
+- 在文件列表中右键文件夹，选择"批量翻译此文件夹中的 PDF"；插件会先显示"待翻译 / 总数"，开始前列出并跳过已有译文。
 
 页码输入使用人类习惯的从 1 开始编号，例如 `1-3,5`。留空翻译全文。
 
 ### PDF++ 划词翻译、Claudian 问答与快速批注
 
 1. 安装并启用 PDF++，在 PDF++ 设置中启用自定义 PDF 右键菜单；
-2. 在“设置 → PDF Math Translate”中保持“启用 PDF++ 集成”开启；
+2. 在"设置 → PDF Math Translate"中保持"启用 PDF++ 集成"开启；
 3. 在 PDF 中选中文字并右键：
-   - 选择“翻译所选文本”，在右侧栏查看译文、复制译文或保存为双语批注；
-   - 选择“发送所选文本到 Claudian 问答”，输入问题；插件只填入 Claudian，不自动发送；
+   - 选择"翻译所选文本"，在右侧栏查看译文、复制译文或保存为双语批注；
+   - 选择"发送所选文本到 Claudian 问答"，输入问题；插件只填入 Claudian，不自动发送；
    - 在 Claudian 中确认 provider、模型和问题后发送，可继续追问；
-   - 回答完成后，选择“导入 Claudian 最后回答为批注”，或使用命令面板/左侧高亮图标；
-   - 在右侧栏选择另一个模型，再点击“用此模型重新翻译”，可对比同一选区的不同模型结果；
-   - 选择“快速批注所选文本”，立即把原文和精确定位链接写入批注笔记；
+   - 回答完成后，选择"导入 Claudian 最后回答为批注"，或使用命令面板/左侧高亮图标；
+   - 在右侧栏选择另一个模型，再点击"用此模型重新翻译"，可对比同一选区的不同模型结果；
+   - 选择"快速批注所选文本"，立即把原文和精确定位链接写入批注笔记；
    - 单击已有高亮，直接打开批注笔记并定位到对应条目；
-   - 右键已有高亮，可选择“打开对应批注”或“删除此处批注”。删除后 15 秒内可点击通知中的“撤销删除”；
-4. 批注笔记保存在原 PDF 的同一文件夹。一篇论文一个文件夹时直接使用“批注.md”；同目录有多篇 PDF 时自动加简短论文编号，例如“DAC2026-900 - 批注.md”。
+   - 右键已有高亮，可选择"打开对应批注"或"删除此处批注"。删除后 15 秒内可点击通知中的"撤销删除"；
+4. 批注笔记保存在原 PDF 的同一文件夹。一篇论文一个文件夹时直接使用"批注.md"；同目录有多篇 PDF 时自动加简短论文编号，例如"DAC2026-900 - 批注.md"。
 
 划词翻译仍使用本地 Python API；问答由 Claudian 的 Codex provider 负责。插件会记录提问时的 Claudian 标签页、会话和消息数量，只导入本次提问之后的新 assistant 回答，避免把旧会话答案误写到当前选区。超过 2500 字符的翻译选区会按自然边界拆分并串行翻译；问答选区上限为 50000 字符。
 
@@ -238,19 +238,19 @@ pdf2zh --celery worker
 └─ 论文标题 - 单语译文 - 20260813-153012-123.pdf
 ```
 
-选择“输出单语、双语”时会额外写入双语 PDF；开启“生成翻译说明 Markdown”后，目录中会额外出现 `翻译说明 - 时间戳.md`。翻译说明不是 PDFMathTranslate 的必需输出。
+选择"输出单语、双语"时会额外写入双语 PDF；开启"生成翻译说明 Markdown"后，目录中会额外出现 `翻译说明 - 时间戳.md`。翻译说明不是 PDFMathTranslate 的必需输出。
 
 单语译文、双语译文和翻译说明始终使用原 PDF 标题作为前缀，例如 `论文标题 - 单语译文 - 时间戳.pdf`。标题过长时会安全截短并增加校验后缀；批注文件仍沿用单论文文件夹中的简短名称。
 
 翻译过程使用系统临时目录；成功后才把产物写入原论文目录，临时文件会自动清理。已写入 Vault 的结果不会被后续任务覆盖。
 
-翻译开始后，可点击完整进度窗或右下角迷你进度窗中的“新增任务”，也可继续使用左侧批量翻译图标、命令面板和文件右键菜单。新增批次会显示“已加入翻译队列”，当前文件完成后自动继续。执行“取消当前 PDF 翻译及等待队列”会同时终止当前文件并移除尚未开始的任务。
+翻译开始后，可点击完整进度窗或右下角迷你进度窗中的"新增任务"，也可继续使用左侧批量翻译图标、命令面板和文件右键菜单。新增批次会显示"已加入翻译队列"，当前文件完成后自动继续。执行"取消当前 PDF 翻译及等待队列"会同时终止当前文件并移除尚未开始的任务。
 
-原文/译文映射保存在插件数据中，新生成的单语、双语译文会与来源 PDF 精确配对。升级前已经由本插件生成、且仍符合时间戳命名规则的同目录译文，也可以按文件名自动识别。双击跳转使用“同页码 + 页内相对位置”，适合 PDFMathTranslate 保持页面结构的输出；若译文发生明显重排，它不是语义级段落对齐。
+原文/译文映射保存在插件数据中，新生成的单语、双语译文会与来源 PDF 精确配对。升级前已经由本插件生成、且仍符合时间戳命名规则的同目录译文，也可以按文件名自动识别。双击跳转使用"同页码 + 页内相对位置"，适合 PDFMathTranslate 保持页面结构的输出；若译文发生明显重排，它不是语义级段落对齐。
 
 ## API 选择说明
 
-PDFMathTranslate 上游的英文 `README.md` 和 `docs/APIS.md` 记录了 Python 与 HTTP API，代码也从 `pdf2zh.__init__` 导出了 `translate`、`translate_stream`。与此同时，`docs/README_zh-CN.md` 曾存在“API 暂时弃用”的文字，文档状态并不完全一致。
+PDFMathTranslate 上游的英文 `README.md` 和 `docs/APIS.md` 记录了 Python 与 HTTP API，代码也从 `pdf2zh.__init__` 导出了 `translate`、`translate_stream`。与此同时，`docs/README_zh-CN.md` 曾存在"API 暂时弃用"的文字，文档状态并不完全一致。
 
 本插件采用以下兼容策略：
 
@@ -295,12 +295,13 @@ pnpm run test:e2e
 ## 仓库结构
 
 ```text
-src/                    Obsidian 插件、交互和适配器
-bridge/                 PDFMathTranslate Python 桥接
+src/                    Obsidian 插件、交互和适配器（TypeScript 源码）
+bridge/                 PDFMathTranslate Python 桥接（独立文件）
 scripts/                环境准备与安装脚本
 tests/                  TypeScript、Python 与可选端到端测试
 manifest.json           Obsidian 插件元数据
 styles.css              插件样式
+main.js                 构建产物（Obsidian 插件入口）
 ```
 
 ## 已知限制
