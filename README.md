@@ -4,8 +4,6 @@
 ![Version](https://img.shields.io/badge/version-0.7.2-blue)
 ![License](https://img.shields.io/badge/license-AGPL--3.0--only-green)
 
-**中文文档**：[README_zh.md](README_zh.md)
-
 在 Obsidian 桌面版中调用 [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate)，把 Vault 内的科技论文 PDF 翻译为单语译文，或同时输出单语译文和双语对照 PDF；翻译说明 Markdown 可选生成且默认关闭。
 
 > An Obsidian desktop plugin for scientific PDF translation, Claudian-powered selection Q&A, and PDF++-based annotations.
@@ -72,17 +70,15 @@ Obsidian 命令 / 文件菜单 / PDF++ 选区菜单 / 任务窗口
  PDFMathTranslate：版面识别、公式保护、文本翻译、PDF 重建
 ```
 
-插件没有复制或改写 PDFMathTranslate 的翻译算法。Python 桥接程序（`bridge/pdf2zh_bridge.py`）只负责把 Obsidian 的 JSON 请求转换为项目公开的 `translate()` 参数，并把进度和结果转换回 JSON 事件。
-
-桥接代码已从 `main.js` 中分离，作为独立文件存放于 `bridge/` 目录。插件通过设置中的 `configFile` 绝对路径定位桥接文件（`path.dirname(configFile) + "/bridge/pdf2zh_bridge.py"`），因此安装插件时需确保 `bridge/` 目录与插件其他文件在同一目录下。
+插件没有复制或改写 PDFMathTranslate 的翻译算法。Python 桥接程序只负责把 Obsidian 的 JSON 请求转换为项目公开的 `translate()` 参数，并把进度和结果转换回 JSON 事件。桥接代码在构建时嵌入 `main.js`，因此安装插件时无需额外复制 Python 脚本。
 
 ## 安装
 
 ### 从 GitHub Releases 安装
 
 1. 在项目 Releases 页面下载 `pdf-math-translate-x.y.z.zip`；
-2. 解压后将 `main.js`、`manifest.json`、`styles.css` 和 `bridge/` 目录复制到 `<Vault>/.obsidian/plugins/pdf-math-translate/`；
-3. 在 Obsidian 的”设置 → 第三方插件”中重新加载并启用 **PDF Math Translate**。
+2. 解压后将 `main.js`、`manifest.json` 和 `styles.css` 复制到 `<Vault>/.obsidian/plugins/pdf-math-translate/`；
+3. 在 Obsidian 的“设置 → 第三方插件”中重新加载并启用 **PDF Math Translate**。
 
 当前版本尚未收录到 Obsidian 官方社区插件库，因此需要手动安装。
 
@@ -96,16 +92,15 @@ pnpm run build
 pnpm test
 ```
 
-构建成功后，Obsidian 所需的文件是：
+构建成功后，Obsidian 所需的三个文件是：
 
 - `main.js`
 - `manifest.json`
 - `styles.css`
-- `bridge/pdf2zh_bridge.py`
 
 ### 安装构建产物
 
-可以手动把上述文件复制到：
+可以手动把上述三个文件复制到：
 
 ```text
 <Vault>/.obsidian/plugins/pdf-math-translate/
