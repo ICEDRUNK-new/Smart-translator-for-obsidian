@@ -17,10 +17,29 @@ import sys
 import time
 import traceback
 from typing import Any, TextIO
-
+import importlib.util
+import subprocess
 
 PROTOCOL_OUT: TextIO = sys.stdout
 
+REQUIRED_PACKAGES = ["peewee==3.18.2", "tencentcloud-sdk-python-tmt==3.1.121"]
+
+def run_pip_and_decide(packages):
+    result = subprocess.run(
+        [sys.executable, "-m", "pip", "install"] + packages,
+        capture_output=True,
+        text=True
+    )
+    
+    if result.returncode != 0:
+        raise ValueError("pip install fail")
+    
+    output = result.stdout + result.stderr  # 合并以防信息在err里
+    
+    if "Successfully installed" in output or "成功安装" in output:
+        return True 
+    else:
+        return False
 
 def emit(event_type: str, **values: Any) -> None:
     payload = {"type": event_type, **values}
@@ -438,6 +457,7 @@ def translate_text(request: dict[str, Any]) -> None:
 
 def main() -> int:
     try:
+        run_pip_and_decide(REQUIRED_PACKAGES)
         request = json.load(sys.stdin)
         if not isinstance(request, dict):
             raise ValueError("\u8BF7\u6C42\u5FC5\u987B\u662F JSON \u5BF9\u8C61")
