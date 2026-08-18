@@ -455,11 +455,6 @@ def translate_text(request: dict[str, Any]) -> None:
 
 
 def main() -> int:
-    import sys as _diag
-    _diag.stderr.write(f"[DIAG] sys.executable={_diag.executable}\n")
-    _diag.stderr.write(f"[DIAG] os.getcwd()={os.getcwd()}\n")
-    _diag.stderr.write(f"[DIAG] sys.argv={sys.argv}\n")
-    _diag.stderr.flush()
     try:
         run_pip_and_decide(REQUIRED_PACKAGES)
         request = json.load(sys.stdin)
@@ -477,14 +472,9 @@ def main() -> int:
                 translate_text(request)
             else:
                 raise ValueError(f"\u4E0D\u652F\u6301\u7684\u64CD\u4F5C: {action!r}")
-        _diag.stderr.write(f"[DIAG] About to return 0\n")
-        _diag.stderr.flush()
         return 0
     except Exception as error:  # The bridge must always return a protocol error.
         traceback.print_exc(file=sys.stderr)
-        _diag.stderr.write(f"[DIAG] EXCEPTION: {type(error).__name__}: {error}\n")
-        _diag.stderr.write(f"[DIAG] About to return 1\n")
-        _diag.stderr.flush()
         emit("error", message=str(error), errorType=type(error).__name__)
         return 1
 
