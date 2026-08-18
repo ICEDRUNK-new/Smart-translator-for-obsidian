@@ -13,21 +13,6 @@ import json
 import os
 from pathlib import Path
 import re
-import sys/* Generated bundle for PDF Math Translate. See the source repository for TypeScript sources. */
-"use strict";var Ne=Object.create;var B=Object.defineProperty;var Re=Object.getOwnPropertyDescriptor;var Be=Object.getOwnPropertyNames;var qe=Object.getPrototypeOf,Ve=Object.prototype.hasOwnProperty;var He=(i,o)=>{for(var e in o)B(i,e,{get:o[e],enumerable:!0})},ue=(i,o,e,t)=>{if(o&&typeof o=="object"||typeof o=="function")for(let n of Be(o))!Ve.call(i,n)&&n!==e&&B(i,n,{get:()=>o[n],enumerable:!(t=Re(o,n))||t.enumerable});return i};var X=(i,o,e)=>(e=i!=null?Ne(qe(i)):{},ue(o||!i||!i.__esModule?B(e,"default",{value:i,enumerable:!0}):e,i)),Ue=i=>ue(B({},"__esModule",{value:!0}),i);var rt={};He(rt,{default:()=>Y});module.exports=Ue(rt);var N=require("node:fs"),Ie=X(require("node:os"),1),Le=X(require("node:path"),1),d=require("obsidian");var q=`"""JSON-lines bridge between the Obsidian plugin and PDFMathTranslate's Python API.
-
-The request is read as one JSON object from stdin. Protocol events are written to
-stdout; output produced by PDFMathTranslate itself is redirected to stderr so it
-cannot corrupt the protocol.
-"""
-
-from __future__ import annotations
-
-import contextlib
-import json
-import os
-from pathlib import Path
-import re
 import sys
 import time
 import traceback
